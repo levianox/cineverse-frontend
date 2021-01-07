@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
 
@@ -20,10 +23,12 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FontAwesomeModule,
     AuthModule,
     MainModule,
     HttpClientModule,
     RouterModule.forRoot(routes)
+    
   ],
   exports: [
     RouterModule
