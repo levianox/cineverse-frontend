@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { Routes, RouterModule, Router } from '@angular/router';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -30,6 +30,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    FontAwesomeModule,
     RouterModule.forChild(routes)
   ],
   exports: [
