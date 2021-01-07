@@ -5,6 +5,7 @@ import { Routes, RouterModule, Router } from '@angular/router';
 
 
 
+
 import { ApiService } from '../api.service';
 
 import { MovieListComponent } from './movie-list/movie-list.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
     MovieListComponent,
     MovieDetailsComponent,
     MovieFormComponent
+    
   
   ],
   imports: [
