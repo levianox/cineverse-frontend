@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { ApiService } from '../../api.service';
 
@@ -10,6 +10,7 @@ import { ApiService } from '../../api.service';
 export class MovieDetailsComponent implements OnInit {
 
   @Input() movie: any;
+  @Output() updateMovie = new EventEmitter();
   rateHovered = 0;
   faStar = faStar;
 
@@ -26,8 +27,16 @@ export class MovieDetailsComponent implements OnInit {
 
   rateClicked(rate: number){
     this.apiService.rateMovie(rate, this.movie.id).subscribe(
-      result=> {
-        console.log(result);
+      result=> this.getDetails(),
+      error => console.log(error)
+    
+    );
+  }
+
+  getDetails(){
+    this.apiService.getMovie(this.movie.id).subscribe(
+      movie=> {
+        this.updateMovie.emit(movie);
     },
     error => console.log(error)
     
