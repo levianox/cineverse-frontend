@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Movie } from '../models/Movie';
 
 
 @Component({
@@ -9,8 +10,9 @@ import { ApiService } from '../api.service';
 })
 export class MainComponent implements OnInit {
 
-  movies: any = [];
+  movies: Movie[] = [];
   selectedMovie = null;
+  editedMovie = null;
 
   constructor(
     private apiService: ApiService
@@ -28,7 +30,39 @@ export class MainComponent implements OnInit {
 
 selectMovie(movie: any) {
   this.selectedMovie = movie;
-  console.log('selectedMovie', this.selectedMovie)
+  this.editedMovie = null;
+}
+
+editMovie(movie: any) {
+  this.editedMovie = movie;
+  this.selectedMovie = null;
+}
+
+createnewMovie(){
+  this.editedMovie = {title:'', description: ''};
+  this.selectedMovie = null;
+}
+
+deletedMovie(movie: Movie){
+  this.apiService.deleteMovie(movie.id).subscribe(
+    data => {
+      this.movies = this.movies.filter(mov => mov.id !== movie.id);
+    },
+    (    error: any) => console.log(error)      
+  );
+}
+
+movieCreated(movie: Movie){
+  this.movies.push(movie);
+  this.editedMovie= null;
+}
+
+movieUpdated(movie: Movie){
+  const indx = this.movies.findIndex(mov => mov.id === movie.id);
+  if(indx >= 0) {
+    this.movies[indx] = movie;
+  }
+  this.editedMovie= null;
 }
 
 }

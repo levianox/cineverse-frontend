@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { ApiService } from '../../api.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class MovieDetailsComponent implements OnInit {
   @Output() updateMovie = new EventEmitter();
   rateHovered = 0;
   faStar = faStar;
+  faEdit = faEdit;
 
   constructor(
     private apiService: ApiService
