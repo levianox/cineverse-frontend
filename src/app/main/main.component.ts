@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Movie } from '../models/Movie';
 
 
 @Component({
@@ -9,9 +10,9 @@ import { ApiService } from '../api.service';
 })
 export class MainComponent implements OnInit {
 
-  movies: any = [];
+  movies: Movie[] = [];
   selectedMovie = null;
-  editMovie = null;
+  editedMovie = null;
 
   constructor(
     private apiService: ApiService
@@ -29,7 +30,21 @@ export class MainComponent implements OnInit {
 
 selectMovie(movie: any) {
   this.selectedMovie = movie;
-  
+  this.editedMovie = null;
+}
+
+editMovie(movie: any) {
+  this.editedMovie = movie;
+  this.selectedMovie = null;
+}
+
+createnewMovie(){
+  this.editedMovie = {title:'', description: ''};
+  this.selectedMovie = null;
+}
+
+deletedMovie(movie: Movie){
+  console.log('delete', movie.title);
 }
 
 }
