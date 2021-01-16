@@ -3,3 +3,34 @@ body {
     margin: 0;
     padding: 0;
 }
+
+button{
+    color: white;
+    background-color: blue;
+    padding: 5px 10px;
+    border-radius: 2px;
+    outline: none;
+    font-weight: bold;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+button:disabled{
+    color:white;
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+textarea{
+    width: 50%;
+    font-size: 0.8em;
+    margin: 10px 0;
+    padding: 30px;
+}
+
+input{
+    width: 25%;
+    font-size: 0.8em;
+    margin: 10px 0;
+    padding: 10px; 
+}

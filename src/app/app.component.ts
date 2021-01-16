@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faCoffee, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faStar, faFilm } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +8,5 @@ import { faCoffee, faStar } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   faStar = faStar;
+  faFilm = faFilm;
 }
