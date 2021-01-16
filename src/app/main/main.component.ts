@@ -44,7 +44,13 @@ createnewMovie(){
 }
 
 deletedMovie(movie: Movie){
-  console.log('delete', movie.title);
+  this.apiService.deleteMovie(movie.id).subscribe(
+    data => {
+      console.log(data);
+    },
+    (    error: any) => console.log(error)      
+  );
 }
+
 
 }
