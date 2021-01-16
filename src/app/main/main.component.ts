@@ -54,6 +54,7 @@ deletedMovie(movie: Movie){
 
 movieCreated(movie: Movie){
   this.movies.push(movie);
+  this.editedMovie= null;
 }
 
 movieUpdated(movie: Movie){
@@ -61,7 +62,7 @@ movieUpdated(movie: Movie){
   if(indx >= 0) {
     this.movies[indx] = movie;
   }
-
+  this.editedMovie= null;
 }
 
 }
