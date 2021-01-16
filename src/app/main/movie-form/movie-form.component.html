@@ -1,1 +1,14 @@
-<p>movie-form works!</p>
+<p>
+    Movie: {{ movie.title }}
+</p>
+
+<form [formGroup]="movieForm" (ngSubmit)="saveForm()">
+
+    <label>Title</label>
+    <p><input type="text" formControlName="title"></p>
+
+    <label>Description</label>
+    <p><textarea type="text" formControlName="description"></textarea></p>
+    <button type="submit">Save</button>
+
+</form>
