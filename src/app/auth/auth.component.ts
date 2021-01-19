@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ApiService } from '../api.service';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-auth',
@@ -13,13 +16,25 @@ export class AuthComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor() { }
+  constructor(
+    private apiService: ApiService,
+    private cookieService: CookieService
+
+  ) { }
 
   ngOnInit(): void {
   }
 
   saveForm(){
-    console.log(this.authForm.value);
+    this.apiService.loginUser(this.authForm.value).subscribe(
+      (result: any) => {
+        console.log(result);
+        this.cookieService.set('mr-token', result.token);
+      
+    },
+      error => console.log(error)
+
+    );
   }
 
 }
