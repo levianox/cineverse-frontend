@@ -19,14 +19,30 @@ h1 fa-icon{
 }
 
 .navbar{
-    background-color:#ffffff;
+    background-color: white;
 }
 
 .navbar-light  .navbar-nav .nav-link{
-    color: #000000;
+    color:black;
     font-size: 18px;
 }
 
 .navbar-light  .navbar-nav .nav-link:hover{
     text-decoration: underline;
+}
+
+.nav-item{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+    border: 2px solid #02120C;
+    padding: 2px 1px;
+    width: 100px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
 }
